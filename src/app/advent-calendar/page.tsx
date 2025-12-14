@@ -33,8 +33,8 @@ const AdventManor: React.FC<AdventManorProps> = ({ data, onDayClick, selectedDay
   const getCategoryLabel = (variant: AdventManorVariant) => {
     switch (variant) {
       case 'dsa': return 'DSA';
-      case 'development': return 'Development';
-      case 'system-design': return 'System Design';
+      case 'development': return 'Dev';
+      case 'system-design': return 'Sys Des';
     }
   };
 
