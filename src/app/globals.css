@@ -1,0 +1,549 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 156 43% 96%;
+    --foreground: 164 40% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 164 40% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 164 40% 9%;
+    --primary: 156 50% 46%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 208 82% 32%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 153 67% 90%;
+    --accent-foreground: 164 40% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 160 100% 28%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Advent Manor Palette - Dark Mode (Default) */
+    --color-bg-main: hsl(156 43% 9%);
+    --color-manor-bg: hsl(156, 43%, 9%);
+    --color-manor-border: #4a5a94;
+    --color-gold: #D4AF37;
+    --color-gold-light: #F1DCA7;
+    --color-cream: #F8F5E1;
+    --color-window-glow: rgba(241, 220, 167, 0.4);
+    --color-shutter: #060a1a;
+  }
+  .dark {
+    --background: 164 40% 9%;
+    --foreground: 180 75% 96%;
+    --card: 164 40% 12%;
+    --card-foreground: 180 75% 96%;
+    --popover: 164 40% 9%;
+    --popover-foreground: 180 75% 96%;
+    --primary: 156 50% 46%;
+    --primary-foreground: 164 40% 9%;
+    --secondary: 210 99% 40%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 215 20.2% 34.1%;
+    --muted-foreground: 210 40% 98%;
+    --accent: 158 38% 24%;
+    --accent-foreground: 180 75% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 156 50% 46%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light mode theme for Advent Manor - Christmas Edition */
+  :root:not(.dark) {
+    --color-bg-main: hsl(var(--background));
+    --color-text-dark: hsl(var(--foreground));
+    --color-text-light: hsl(var(--primary-foreground));
+    --color-accent-gold: var(--color-gold);
+    --color-number-contrast: #F8F5E1; /* Creamy White */
+    --manor-accent-color: var(--color-gold);
+    --color-cream: hsl(var(--muted-foreground));
+  }
+  
+  :root:not(.dark) .manor-facade,
+  :root:not(.dark) .reward-card {
+    --manor-border-color: #D4AF37;
+    --manor-shutter-color: hsl(156, 43%, 9%);
+    --manor-text-color: var(--color-number-contrast);
+    --manor-glow-color: rgba(212, 175, 55, 0.4);
+  }
+
+  :root:not(.dark) .manor-facade {
+     --manor-bg-color: hsl(156, 43%, 9%);
+  }
+  
+  :root:not(.dark) .manor-roof {
+    background-image: repeating-linear-gradient(45deg, #444, #444 10px, #555 10px, #555 12px);
+  }
+
+  :root:not(.dark) .reward-card {
+    --manor-text-color: #000000;
+  }
+  :root:not(.dark) .reward-card[data-variant="dsa"] { --manor-bg-color: #F0F0F0; }
+  :root:not(.dark) .reward-card[data-variant="development"] { --manor-bg-color: #F3E9DD; }
+  :root:not(.dark) .reward-card[data-variant="system-design"] { --manor-bg-color: #DCDCDC; }
+
+  :root:not(.dark) .text-primary {
+      color: hsl(var(--primary));
+  }
+  
+  :root:not(.dark) .text-muted-foreground {
+      color: hsl(var(--muted-foreground));
+  }
+
+  :root:not(.dark) .tabs-list-style {
+      background-color: hsl(var(--muted));
+      color: hsl(var(--muted-foreground));
+      border-color: hsl(var(--border));
+  }
+
+  :root:not(.dark) .tabs-trigger-style[data-state=active] {
+      background-color: hsl(var(--background));
+      color: hsl(var(--primary));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .bg-bg-main {
+    background-color: var(--color-bg-main);
+  }
+  .text-gold {
+    color: var(--color-gold);
+  }
+  .text-cream {
+    color: var(--color-cream);
+  }
+  :root:not(.dark) .text-primary {
+    color: hsl(var(--primary));
+  }
+  :root:not(.dark) .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+}
+
+@layer components {
+
+  /* == ADVENT MANOR FACADE == */
+  .manor-facade {
+    @apply relative w-full max-w-4xl mx-auto my-8 transition-all duration-500;
+  }
+
+  .has-modal-open .manor-facade {
+    @apply filter blur-sm scale-95;
+  }
+
+  .manor-roof {
+    @apply relative h-24 mx-auto border-b-4 border-[var(--manor-accent-color)];
+    width: calc(100% + 4px);
+    background-image: repeating-linear-gradient(45deg, var(--manor-shutter-color), var(--manor-shutter-color) 10px, color-mix(in srgb, var(--manor-border-color) 20%, transparent) 10px, color-mix(in srgb, var(--manor-border-color) 20%, transparent) 12px);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+  
+  .roof-peak-accent, .chimney {
+    @apply absolute bg-[var(--manor-accent-color)];
+  }
+  
+  .roof-peak-accent {
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  }
+
+  .chimney {
+    width: 20px;
+    height: 40px;
+    bottom: 0;
+  }
+  
+  .chimney.left { left: 15%; }
+  .chimney.right { right: 15%; }
+
+  .manor-body {
+    @apply w-full grid bg-[var(--manor-bg-color)] border-2 border-[var(--manor-border-color)] border-t-0;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(60px, auto);
+    gap: 0;
+  }
+
+  /* == Window & Door Placement == */
+  .manor-window { grid-column: span 2; }
+  .manor-window.day-1 { grid-column: 1 / 3; grid-row: 1; }
+  .manor-window.day-2 { grid-column: 3 / 5; grid-row: 1; }
+  .manor-window.day-3 { grid-column: 9 / 11; grid-row: 1; }
+  .manor-window.day-4 { grid-column: 11 / 13; grid-row: 1; }
+
+  .manor-window.day-5 { grid-column: 1 / 3; grid-row: 2; }
+  .manor-window.day-6 { grid-column: 3 / 5; grid-row: 2; }
+  .manor-window.day-7 { grid-column: 9 / 11; grid-row: 2; }
+  .manor-window.day-8 { grid-column: 11 / 13; grid-row: 2; }
+
+  .manor-window.day-9 { grid-column: 1 / 3; grid-row: 3; }
+  .manor-window.day-10 { grid-column: 3 / 5; grid-row: 3; }
+  .manor-window.day-11 { grid-column: 9 / 11; grid-row: 3; }
+  .manor-window.day-12 { grid-column: 11 / 13; grid-row: 3; }
+  
+  .main-door-container {
+    grid-column: 5 / 9;
+    grid-row: 1 / 5;
+    @apply flex flex-col;
+  }
+  .pediment {
+    @apply text-center text-xs font-bold tracking-widest text-[var(--manor-text-color)] uppercase p-2 border-x-2 border-t-2 border-[var(--manor-border-color)];
+  }
+  .main-door {
+    @apply flex-grow bg-[var(--manor-shutter-color)] border-2 border-[var(--manor-border-color)] rounded-b-lg flex p-1 relative;
+  }
+  .door-panel { @apply w-1/2 border-r border-dashed border-[var(--manor-border-color)]; }
+  .door-knob { @apply absolute top-1/2 right-[55%] h-2 w-2 bg-[var(--manor-accent-color)] rounded-full; }
+
+  .manor-window.day-13 { grid-column: 1 / 3; grid-row: 4; }
+  .manor-window.day-14 { grid-column: 3 / 5; grid-row: 4; }
+  .manor-window.day-15 { grid-column: 9 / 11; grid-row: 4; }
+  .manor-window.day-16 { grid-column: 11 / 13; grid-row: 4; }
+
+  .manor-window.day-17 { grid-column: 1 / 3; grid-row: 5; }
+  .manor-window.day-18 { grid-column: 3 / 5; grid-row: 5; }
+  .manor-window.day-19 { grid-column: 5 / 7; grid-row: 5; }
+  .manor-window.day-20 { grid-column: 7 / 9; grid-row: 5; }
+  .manor-window.day-21 { grid-column: 9 / 11; grid-row: 5; }
+  .manor-window.day-22 { grid-column: 11 / 13; grid-row: 5; }
+  
+  .manor-window.day-23 { grid-column: 5 / 7; grid-row: 6; }
+  .manor-window.day-24 { grid-column: 7 / 9; grid-row: 6; }
+
+  .dark .manor-facade {
+    --manor-bg-color: #0b1120;
+    --manor-border-color: var(--color-gold);
+    --manor-shutter-color: #060a1a;
+    --manor-accent-color: var(--color-gold);
+    --manor-text-color: var(--color-gold-light);
+    --manor-glow-color: var(--color-window-glow);
+  }
+
+  :root:not(.dark) .manor-facade {
+    --manor-bg-color: hsl(156, 43%, 9%);
+    --manor-border-color: var(--color-gold);
+    --manor-shutter-color: #060a1a;
+    --manor-accent-color: var(--color-gold);
+    --manor-text-color: var(--color-gold-light);
+    --manor-glow-color: var(--color-window-glow);
+  }
+
+  /* == Window & Shutter Styles == */
+  .manor-window {
+    @apply relative aspect-square cursor-pointer overflow-hidden border;
+    perspective: 1000px;
+    background-color: transparent;
+    border-color: var(--manor-accent-color);
+  }
+
+  .window-content {
+      @apply absolute inset-0 flex flex-col items-center justify-center p-0 m-0;
+      transform-style: preserve-3d;
+      background-color: var(--manor-bg-color);
+  }
+
+  .manor-window.is-locked {
+    @apply cursor-not-allowed opacity-70;
+  }
+  
+  .shutter-left, .shutter-right {
+    @apply absolute top-0 w-1/2 h-full bg-[var(--manor-shutter-color)] transition-transform duration-500 ease-in-out;
+    z-index: 2;
+  }
+  
+  :root:not(.dark) .shutter-left,
+  :root:not(.dark) .shutter-right {
+    background-color: hsl(156, 43%, 9%);
+  }
+
+  .shutter-left {
+    left: 0;
+    border-right: 1px solid color-mix(in srgb, var(--manor-border-color) 50%, transparent);
+    transform-origin: left;
+  }
+  
+  .shutter-right {
+    right: 0;
+    transform-origin: right;
+  }
+
+  .manor-window:not(.is-open):hover .shutter-left,
+  .manor-window.is-open .shutter-left {
+    transform: rotateY(-140deg);
+  }
+  
+  .manor-window:not(.is-open):hover .shutter-right,
+  .manor-window.is-open .shutter-right {
+    transform: rotateY(140deg);
+  }
+  
+  .window-glow {
+    @apply absolute inset-0 bg-[var(--manor-glow-color)] transition-opacity duration-300 opacity-0 z-[3];
+  }
+  .manor-window:not(.is-open):hover .window-glow {
+    @apply opacity-100 animate-pulse;
+  }
+
+  .window-number {
+    @apply font-bold transition-all duration-300 relative;
+    font-size: clamp(1rem, 2.5vw, 1.75rem);
+    transition-property: opacity, transform;
+    z-index: 5;
+    font-family: var(--font-headline);
+  }
+  .window-category {
+    @apply text-xs font-semibold uppercase tracking-wider relative;
+    z-index: 5;
+  }
+  :root:not(.dark) .window-number,
+  :root:not(.dark) .window-category {
+    color: var(--color-gold-light);
+  }
+  .dark .window-number,
+  .dark .window-category {
+    color: var(--color-gold-light);
+  }
+
+
+  .manor-window.is-open .window-number,
+  .manor-window.is-open .window-category {
+    @apply opacity-0 scale-50;
+    transition-duration: 0.1s;
+  }
+
+  /* == Reward Card == */
+  .reward-card {
+    @apply relative w-[90vw] max-w-md bg-[var(--manor-bg-color)] text-[var(--manor-text-color)] rounded-lg border-2 border-[var(--manor-accent-color)] shadow-2xl p-6 overflow-hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 15px var(--manor-accent-color);
+  }
+
+  .dark .reward-card {
+    color: var(--color-cream);
+    --manor-bg-color: #141f40;
+  }
+   :root:not(.dark) .reward-card {
+     color: #000000;
+   }
+   :root:not(.dark) .reward-card[data-variant="dsa"] { background-color: #F0F0F0; }
+   :root:not(.dark) .reward-card[data-variant="development"] { background-color: #F3E9DD; }
+   :root:not(.dark) .reward-card[data-variant="system-design"] { background-color: #DCDCDC; }
+
+
+  .card-sheen {
+    @apply absolute top-0 left-[-75%] w-1/2 h-full opacity-30;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: sheen 2.5s infinite;
+  }
+  
+  .reward-header { @apply text-center mb-4 border-b-2 border-dashed border-[var(--manor-accent-color)] pb-4; }
+  .reward-day { 
+    @apply block text-sm uppercase tracking-widest text-[var(--manor-accent-color)];
+    font-family: var(--font-body);
+  }
+  :root:not(.dark) .reward-day {
+      color: color-mix(in srgb, var(--manor-text-color), black 30%);
+  }
+  .reward-title { 
+    @apply text-2xl font-bold text-[var(--manor-accent-color)] mt-1;
+    font-family: var(--font-headline);
+  }
+   :root:not(.dark) .reward-title {
+      color: var(--manor-text-color);
+  }
+  .reward-explanation { 
+    @apply text-base leading-relaxed;
+    font-family: var(--font-body);
+  }
+
+  .close-button {
+    @apply absolute top-2 right-2 w-8 h-8 rounded-full bg-transparent text-[var(--manor-accent-color)] text-lg flex items-center justify-center transition-colors;
+    font-family: var(--font-headline);
+  }
+  .close-button:hover { @apply bg-[var(--manor-accent-color)] text-[var(--manor-bg-color)]; }
+
+   :root:not(.dark) .close-button {
+      color: var(--manor-text-color);
+   }
+   :root:not(.dark) .close-button:hover {
+      background-color: var(--manor-accent-color);
+      color: var(--manor-bg-color);
+   }
+  
+  @keyframes sheen {
+    0% { left: -75%; }
+    100% { left: 125%; }
+  }
+
+  /* Responsive Adjustments for Manor */
+  @media (max-width: 768px) {
+    .manor-body {
+        grid-template-columns: repeat(8, 1fr);
+        gap: 0;
+    }
+    .manor-window { grid-column: span 2; }
+    .manor-window.day-1 { grid-column: 1 / 3; grid-row: 1; }
+    .manor-window.day-2 { grid-column: 3 / 5; grid-row: 1; }
+    .manor-window.day-3 { grid-column: 5 / 7; grid-row: 1; }
+    .manor-window.day-4 { grid-column: 7 / 9; grid-row: 1; }
+    .manor-window.day-5 { grid-column: 1 / 3; grid-row: 2; }
+    .manor-window.day-6 { grid-column: 3 / 5; grid-row: 2; }
+    .manor-window.day-7 { grid-column: 5 / 7; grid-row: 2; }
+    .manor-window.day-8 { grid-column: 7 / 9; grid-row: 2; }
+    .manor-window.day-9 { grid-column: 1 / 3; grid-row: 3; }
+    .manor-window.day-10 { grid-column: 3 / 5; grid-row: 3; }
+    .manor-window.day-11 { grid-column: 5 / 7; grid-row: 3; }
+    .manor-window.day-12 { grid-column: 7 / 9; grid-row: 3; }
+    
+    .main-door-container {
+        grid-column: 1 / 9;
+        grid-row: 4;
+        min-height: 100px;
+    }
+
+    .manor-window.day-13 { grid-column: 1 / 3; grid-row: 5; }
+    .manor-window.day-14 { grid-column: 3 / 5; grid-row: 5; }
+    .manor-window.day-15 { grid-column: 5 / 7; grid-row: 5; }
+    .manor-window.day-16 { grid-column: 7 / 9; grid-row: 5; }
+    .manor-window.day-17 { grid-column: 1 / 3; grid-row: 6; }
+    .manor-window.day-18 { grid-column: 3 / 5; grid-row: 6; }
+    .manor-window.day-19 { grid-column: 5 / 7; grid-row: 6; }
+    .manor-window.day-20 { grid-column: 7 / 9; grid-row: 6; }
+    .manor-window.day-21 { grid-column: 1 / 3; grid-row: 7; }
+    .manor-window.day-22 { grid-column: 3 / 5; grid-row: 7; }
+    .manor-window.day-23 { grid-column: 5 / 7; grid-row: 7; }
+    .manor-window.day-24 { grid-column: 7 / 9; grid-row: 7; }
+    
+    .window-number { font-size: 1.25rem; }
+  }
+
+  @media (max-width: 480px) {
+      .tabs-list-style {
+        @apply grid-cols-1 h-auto;
+      }
+      .manor-body {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0;
+      }
+      .manor-window { grid-column: span 1; }
+      .main-door-container { 
+        grid-column: 1 / 5; 
+        grid-row: 7;
+        min-height: 80px;
+      }
+      .window-number { font-size: 1rem; }
+
+      .manor-window.day-1 { grid-column: 1 / 2; grid-row: 1; }
+      .manor-window.day-2 { grid-column: 2 / 3; grid-row: 1; }
+      .manor-window.day-3 { grid-column: 3 / 4; grid-row: 1; }
+      .manor-window.day-4 { grid-column: 4 / 5; grid-row: 1; }
+      .manor-window.day-5 { grid-column: 1 / 2; grid-row: 2; }
+      .manor-window.day-6 { grid-column: 2 / 3; grid-row: 2; }
+      .manor-window.day-7 { grid-column: 3 / 4; grid-row: 2; }
+      .manor-window.day-8 { grid-column: 4 / 5; grid-row: 2; }
+      .manor-window.day-9 { grid-column: 1 / 2; grid-row: 3; }
+      .manor-window.day-10 { grid-column: 2 / 3; grid-row: 3; }
+      .manor-window.day-11 { grid-column: 3 / 4; grid-row: 3; }
+      .manor-window.day-12 { grid-column: 4 / 5; grid-row: 3; }
+      .manor-window.day-13 { grid-column: 1 / 2; grid-row: 4; }
+      .manor-window.day-14 { grid-column: 2 / 3; grid-row: 4; }
+      .manor-window.day-15 { grid-column: 3 / 4; grid-row: 4; }
+      .manor-window.day-16 { grid-column: 4 / 5; grid-row: 4; }
+      .manor-window.day-17 { grid-column: 1 / 2; grid-row: 5; }
+      .manor-window.day-18 { grid-column: 2 / 3; grid-row: 5; }
+      .manor-window.day-19 { grid-column: 3 / 4; grid-row: 5; }
+      .manor-window.day-20 { grid-column: 4 / 5; grid-row: 5; }
+      .manor-window.day-21 { grid-column: 1 / 2; grid-row: 6; }
+      .manor-window.day-22 { grid-column: 2 / 3; grid-row: 6; }
+      .manor-window.day-23 { grid-column: 3 / 4; grid-row: 6; }
+      .manor-window.day-24 { grid-column: 4 / 5; grid-row: 6; }
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-in-out;
+  }
+
+  .animate-twinkle {
+    animation: twinkle 1.5s infinite alternate;
+  }
+  
+  .animate-sparkle {
+      animation: sparkle 1s infinite;
+  }
+
+  .cursor-wand {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='gold' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 4V2m0 14v-2m-3.5-6.5L10 4m-1.8 7.8L7 11.5m10 .3-1.8-.3-1.8-.3m0-5.2.3-1.8.3-1.8M8.8 19.2l1.2-3.4 3.4-1.2m-10-5.2L4 8l-1.5-2.5M4 15l2.5 1.5L8 18M19.2 8.8l-3.4 1.2-1.2 3.4'/></svg>") 12 12, auto;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes twinkle {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes sparkle {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.5); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.5; }
+  }
+}
