@@ -1,10 +1,9 @@
-
 'use client'
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CalendarDays, Code, Contact, Group, Trophy } from 'lucide-react';
+import { ArrowRight, CalendarDays, Code, Contact, Users, Trophy, Lightbulb, Target } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
@@ -22,11 +21,14 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-20 items-center">
             <div className="flex flex-col justify-center space-y-4 text-center lg:text-left">
               <div className="space-y-4">
+                <div className="inline-block">
+                  <span className="text-sm font-semibold text-primary/80 tracking-wide uppercase">SSN College of Engineering</span>
+                </div>
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline text-primary">
-                  GFG Campus Body
+                  GeeksforGeeks Campus Body
                 </h1>
-                <p className="max-w-[600px] mx-auto lg:mx-0 text-muted-foreground md:text-xl">
-                  Your one-stop destination for coding, community, and career growth, powered by GeeksForGeeks.
+                <p className="max-w-[600px] mx-auto lg:mx-0 text-muted-foreground md:text-xl leading-relaxed">
+                  Where learning is shared, practiced, and celebrated together. Join a vibrant community of developers, problem solvers, and innovators at SSN.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center lg:justify-start">
@@ -77,44 +79,91 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-accent px-3 py-1 text-sm text-primary font-medium">
-                What We Do
+                What We Offer
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
-                Foster a Passion for Technology
+                Bridging Theory and Practice
               </h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                We organize a variety of events, workshops, and competitions to help students learn, grow, and connect with fellow tech enthusiasts.
+                Through coding sessions, workshops, contests, and collaborative projects, we nurture a culture of curiosity and consistency, empowering you to excel.
               </p>
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 mt-12">
             <FeatureCard
               icon={<Code className="h-8 w-8 text-primary" />}
-              title="Coding Competitions"
-              description="Sharpen your problem-solving skills in competitive programming contests."
+              title="Coding Sessions & Contests"
+              description="Sharpen your problem-solving skills through regular coding challenges and competitive programming contests."
+            />
+            <FeatureCard
+              icon={<Lightbulb className="h-8 w-8 text-primary" />}
+              title="Workshops & Tech Talks"
+              description="Explore cutting-edge technologies and learn from industry experts, seniors, and peers across diverse tech domains."
+            />
+            <FeatureCard
+              icon={<Target className="h-8 w-8 text-primary" />}
+              title="Real-World Projects"
+              description="Work on collaborative projects that prepare you for real-world challenges and enhance your practical skills."
+            />
+            <FeatureCard
+              icon={<Users className="h-8 w-8 text-primary" />}
+              title="Community & Networking"
+              description="Connect with fellow tech enthusiasts, build lasting relationships, and grow together as a community."
+            />
+            <FeatureCard
+              icon={<Trophy className="h-8 w-8 text-primary" />}
+              title="Competitions & Events"
+              description="Participate in hackathons, coding challenges, and technical events that push your boundaries."
             />
             <FeatureCard
               icon={<CalendarDays className="h-8 w-8 text-primary" />}
-              title="Workshops & Events"
-              description="Learn new technologies and concepts from industry experts and senior students."
-            />
-            <FeatureCard
-              icon={<Group className="h-8 w-8 text-primary" />}
-              title="Community Building"
-              description="Connect with peers, build your network, and collaborate on exciting projects."
+              title="Year-Round Activities"
+              description="Engage in continuous learning through our diverse calendar of events, workshops, and mentorship programs."
             />
           </div>
         </div>
       </section>
+
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-primary/5 to-accent/50">
+        <div className="container px-4 md:px-6">
+          <div className="grid gap-8 lg:grid-cols-2 items-center">
+            <div className="space-y-4">
+              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">
+                Our Philosophy
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">
+                More Than a Technical Club
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                At SSN, the GeeksforGeeks Campus Body is a place where we grow, connect, and innovate together. We believe in the power of shared knowledge and collaborative learning.
+              </p>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                By nurturing curiosity and consistency, we create an environment where every student can transform from a learner into an innovator, ready to tackle tomorrow's challenges.
+              </p>
+              <div className="pt-4">
+                <p className="text-xl font-semibold text-primary">
+                  Powered by Geeks... for Geeks! ✨
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <StatCard number="500+" label="Active Members" />
+              <StatCard number="50+" label="Events Annually" />
+              <StatCard number="100+" label="Projects Completed" />
+              <StatCard number="24/7" label="Community Support" />
+            </div>
+          </div>
+        </div>
+      </section>
       
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-accent/50">
+      <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
           <div className="space-y-3">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight font-headline">
-              Ready to Join the Community?
+              Ready to Join the GFG Family?
             </h2>
             <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Explore our team, check out our events, and get in touch. We're excited to have you on board.
+              Explore our team, participate in upcoming events, and become part of SSN's most vibrant tech community.
             </p>
           </div>
           <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
@@ -127,7 +176,7 @@ export default function Home() {
             <Button asChild variant="outline" size="lg">
               <Link href="/contact">
                 <Contact className="mr-2 h-5 w-5"/>
-                Contact Us
+                Get in Touch
               </Link>
             </Button>
           </div>
@@ -139,7 +188,7 @@ export default function Home() {
 
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
   return (
-    <div className="grid gap-4 text-center items-start justify-items-center">
+    <div className="grid gap-4 text-center items-start justify-items-center p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
         {icon}
       </div>
@@ -147,6 +196,15 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode, titl
         <h3 className="text-lg font-bold font-headline">{title}</h3>
         <p className="text-sm text-muted-foreground">{description}</p>
       </div>
+    </div>
+  );
+}
+
+function StatCard({ number, label }: { number: string, label: string }) {
+  return (
+    <div className="p-6 rounded-lg border bg-card text-center">
+      <div className="text-3xl font-bold text-primary">{number}</div>
+      <div className="text-sm text-muted-foreground mt-1">{label}</div>
     </div>
   );
 }
